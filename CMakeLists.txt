@@ -17,6 +17,15 @@ add_executable(plants_moisture
 
     src/hardware/AnalogPin.h
     src/hardware/AnalogPin.cpp
+
+    src/hardware/context/ContextScript.h
+
+    src/hardware/context/ExecutionContext.h
+    src/hardware/context/ExecutionContext.cpp
+
+    # scripts
+    src/scripts/main/MainScript.h
+    src/scripts/main/MainScript.cpp
 )
 
 pico_enable_stdio_usb(plants_moisture 1)
