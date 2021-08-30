@@ -1,14 +1,14 @@
 #ifndef SRC_SCRIPTS_MAIN_MAINSCRIPT_H
 #define SRC_SCRIPTS_MAIN_MAINSCRIPT_H
 
-#include "../../hardware/AnalogPin.h"
+#include "../../domain/moisture/MoistureSensor.h"
 #include "../../hardware/context/ContextScript.h"
 
 namespace scripts {
 
 class MainScript: public hardware::ContextScript {
 private:
-    hardware::AnalogPin* _moisture_pin;
+    domain::MoistureSensor* _moisture_sensor;
 
 public:
     MainScript();

@@ -13,7 +13,7 @@ unsigned int GetGenuinePinIdFromRawId(unsigned int raw_id) {
     }
 }
 
-}
+} // namespace
 
 namespace hardware {
 

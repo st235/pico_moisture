@@ -26,6 +26,14 @@ add_executable(plants_moisture
     # scripts
     src/scripts/main/MainScript.h
     src/scripts/main/MainScript.cpp
+
+    # domain
+    src/domain/moisture/MoistureSensor.h
+    src/domain/moisture/MoistureSensor.cpp
+
+    # utils
+    src/utils/MathUtils.h
+    src/utils/MathUtils.cpp
 )
 
 pico_enable_stdio_usb(plants_moisture 1)

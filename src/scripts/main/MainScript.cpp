@@ -1,11 +1,13 @@
 #include "MainScript.h"
 
 #include <stdio.h>
+
+#include "../../hardware/AnalogPin.h"
 #include "../../hardware/context/ExecutionContext.h"
 
 namespace scripts {
 
-MainScript::MainScript(): _moisture_pin(nullptr) {
+MainScript::MainScript(): _moisture_sensor(nullptr) {
 }
 
 unsigned int MainScript::getId() {
@@ -15,12 +17,16 @@ unsigned int MainScript::getId() {
 void MainScript::onInit(hardware::ExecutionContext* context) {
     context->enableAnalog();
 
-    this->_moisture_pin = hardware::AnalogPin::from(hardware::AnalogPinId::ADC0);
+    this->_moisture_sensor = new domain::MoistureSensor(
+        hardware::AnalogPin::from(hardware::AnalogPinId::ADC0),
+        1400U /* min current */,
+        3500U /* max current */
+    );
 }
 
 void MainScript::onUpdate(hardware::ExecutionContext* context) {
-    unsigned int value = this->_moisture_pin->read();
-    printf("value: %u\n", value);
+    double value = this->_moisture_sensor->normalisedValue();
+    printf("value: %.2f\n", value);
     context->suspend(500);
 }
 

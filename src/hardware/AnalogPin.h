@@ -16,7 +16,7 @@ private:
     unsigned int _raw_id;
     unsigned int _genuine_pin_id;
 
-    AnalogPin(unsigned int raw_id);
+    explicit AnalogPin(unsigned int raw_id);
 
 public:
     unsigned int read() override;
